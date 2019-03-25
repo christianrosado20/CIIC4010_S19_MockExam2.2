@@ -1,7 +1,7 @@
 import java.util.ArrayList;
 
 public class CarDealer {
-	private String dealerName; 	  // Car Company name
+	private String dealerName; 	  	  // Car Company name
 	private ArrayList<String> models; // Car models that are for sell
 	private int carAmount; 			  // Amount of cars available in the storage
 	private int workers;  			  // Employees that work at the car company

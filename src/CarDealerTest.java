@@ -28,6 +28,7 @@ public class CarDealerTest {
 		carDealer5 = new CarDealer("Mini Cooper Dealer", models5, 300, 20, 2100000);
 	
 	}
+	//Test Cases
 	
 	@Test
 	public void testWorkersPayment() {
