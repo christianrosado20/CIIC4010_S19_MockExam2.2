@@ -15,6 +15,7 @@ public class CarDealerTest {
 	
 	@Before
 	public void setUp() {
+		// Making model
 		models1 = new ArrayList<String>(Arrays.asList("Civic", "Accord", "Pilot", "CR-V"));
 		models2 = new ArrayList<String>(Arrays.asList("Camry", "Prius", "Yaris", "RAV4", "Corolla", "Highlander", "4Runner"));
 		models3 = new ArrayList<String>(Arrays.asList("Model X", "Roadster", "Model Y", "Model S", "Model 3"));
@@ -28,7 +29,7 @@ public class CarDealerTest {
 		carDealer5 = new CarDealer("Mini Cooper Dealer", models5, 300, 20, 2100000);
 	
 	}
-	//Test Cases
+	//Test Cases 
 	
 	@Test
 	public void testWorkersPayment() {
@@ -55,16 +56,16 @@ public class CarDealerTest {
 	
 	@Test
 	public void testTradeInCar() {
-		String[] carsTraded1 = new String[] {"Civic", "CR-V", "Civic", "Civic", "CR-V","Pilot"};
+		String[] carsTraded1 = new String[] {"Civic", "Civic", "Pilot", "CR-V", "CR-V",};
 		ArrayList<String> carsOffered1 = new ArrayList<String>(Arrays.asList("Civic", "Camry", "CR-V", "Focus", "Civic", "CR-V", "Hardtop","Model 3","Pilot"));
 		CarDealer cd1 = new CarDealer("Honda Dealer", models1, 650, 43, 2465000);
 		String[] tradedInCars1 = carDealer1.tradeInCar(carsOffered1);
 		assertEquals(cd1,carDealer1);
 		assertTrue(Arrays.equals(tradedInCars1,carsTraded1));
 		
-		String[] carsTraded2 = new String[] {"Hardtop", "Countryman", "Hardtop"};
+		String[] carsTraded2 = new String[] {"Hardtop", "Hardtop", "Countryman"};
 		ArrayList<String> carsOffered2 = new ArrayList<String>(Arrays.asList("Hardtop", "Camry", "CR-V", "Countryman", "Civic", "CR-V", "Hardtop","Model 3","Pilot"));
-		CarDealer cd2 = new CarDealer("Honda Dealer", models1, 650, 43, 2074500);
+		CarDealer cd2 = new CarDealer("Mini Cooper Dealer", models5, 300, 20, 2074500);
 		String[] tradedInCars2 = carDealer5.tradeInCar(carsOffered2);
 		assertEquals(cd2,carDealer5);
 		assertTrue(Arrays.equals(tradedInCars2,carsTraded2));
@@ -72,7 +73,7 @@ public class CarDealerTest {
 	
 	@Test
 	public void testCheckInventory() {
-		int[] carInventoryAmount1 = new int[]{4,2,1,3};
+		int[] carInventoryAmount1 = new int[]{4,1,1,3};
 		ArrayList<String> carInventory1 = new ArrayList<String>(Arrays.asList("Civic", "Pilot", "CR-V", "Accord", "Civic", "CR-V", "CR-V","Civic","Civic"));
 		CarDealer carDealer1 = new CarDealer("Honda Dealer", models1, 650, 43, 2500000);
 		int[] res1 = carDealer1.checkInventory(carInventory1);
@@ -90,7 +91,7 @@ public class CarDealerTest {
 		int[] res3 = carDealer3.checkInventory(carInventory3);
 		assertTrue(Arrays.equals(res3,carInventoryAmount3));
 		
-		int[] carInventoryAmount4 = new int[]{4,2,4,2,1,1};
+		int[] carInventoryAmount4 = new int[]{4,2,4,1,1,1};
 		ArrayList<String> carInventory4 = new ArrayList<String>(Arrays.asList("Fusion", "Focus", "Escape", "F-150", "Mustang", "Edge", "Mustang","Focus","Escape","Escape","Focus","Focus","Escape"));
 		CarDealer carDealer4 = new CarDealer("Ford Dealer", models4, 800, 58, 3200000);
 		int[] res4 = carDealer4.checkInventory(carInventory4);
@@ -109,31 +110,31 @@ public class CarDealerTest {
 	@Test
 	public void testCarSellTotal() {
 		int[] carModelPrice1 = new int[] {18000,25000,31000,23500};
-		CarDealer cd1 = new CarDealer("Honda Dealer", models1, 649, 43, 2500000);
+		CarDealer cd1 = new CarDealer("Honda Dealer", models1, 649, 43, 2529250);
 		int carSellTotal1 = carDealer1.carSellTotal("Accord", carModelPrice1);
 		assertEquals(cd1,carDealer1);
 		assertTrue(carSellTotal1 == 29250);
 		
 		int[] carModelPrice2 = new int[] {25000,28000,16000,23000,20000,32000,29000};
-		CarDealer cd2 = new CarDealer("Toyota Dealer", models2, 849, 64, 3900000);
+		CarDealer cd2 = new CarDealer("Toyota Dealer", models2, 849, 64, 3923400);
 		int carSellTotal2 = carDealer2.carSellTotal("Corolla", carModelPrice2);
 		assertEquals(cd2,carDealer2);
 		assertTrue(carSellTotal2 == 23400);
 		
 		int[] carModelPrice3 = new int[] {60000,89000,35000,56000,33000};
-		CarDealer cd3 = new CarDealer("Tesla Motors", models3, 99, 30, 3500000);
+		CarDealer cd3 = new CarDealer("Tesla Motors", models3, 99, 30, 3540950);
 		int carSellTotal3 = carDealer3.carSellTotal("Model Y", carModelPrice3);
 		assertEquals(cd3,carDealer3);
 		assertTrue(carSellTotal3 == 40950);
 		
 		int[] carModelPrice4 = new int[] {16000,24000,28000,30000,35000,27000};
-		CarDealer cd4 = new CarDealer("Ford Dealer", models4, 799, 58, 3200000);
+		CarDealer cd4 = new CarDealer("Ford Dealer", models4, 799, 58, 3228080);
 		int carSellTotal4 = carDealer4.carSellTotal("Mustang", carModelPrice4);
 		assertEquals(cd4,carDealer4);
 		assertTrue(carSellTotal4 == 28080);
 
 		int[] carModelPrice5 = new int[] {24000,32000,36000};
-		CarDealer cd5 = new CarDealer("Mini Cooper Dealer", models5, 299, 20, 2100000);
+		CarDealer cd5 = new CarDealer("Mini Cooper Dealer", models5, 299, 20, 2142120);
 		int carSellTotal5 = carDealer5.carSellTotal("Clubman", carModelPrice5);
 		assertEquals(cd5,carDealer5);
 		assertTrue(carSellTotal5 == 42120);
@@ -146,7 +147,7 @@ public class CarDealerTest {
 		CarDealer rivalCarDealer2 = new CarDealer("Luis Auto Shop", models2, 1100, 96, 4100000); 
 		CarDealer rivalCarDealer3 = new CarDealer("Pepe's Carros", models3, 120, 20, 1500000); 
 		CarDealer rivalCarDealer4 = new CarDealer("Bobby Carros", models4, 960, 80, 4100000);
-		CarDealer rivalCarDealer5 = new CarDealer("Tony Carros", models5, 400, 29, 2000000);
+		CarDealer rivalCarDealer5 = new CarDealer("Tony Carros", models5, 400, 29, 2100000);
 		
 		assertTrue(carDealer1.buyRivalDealer(rivalCarDealer1));
 		assertFalse(carDealer2.buyRivalDealer(rivalCarDealer2));
